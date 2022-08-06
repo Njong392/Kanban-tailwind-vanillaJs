@@ -1,54 +1,4 @@
-/*
-//selectors
-const todoInput = document.querySelector('#todo-input');
-const todoButton = document.querySelector('#todo-button');
-const todoList =  document.querySelector('#todo-list');
 
-//event listeners
-todoButton.addEventListener('click', addToDo);
-
-//functions
-function addToDo(event) {
-    //prevents form from submtting
-    event.preventDefault();
-
-    //creating todo div
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('bg-white','text-black', 'flex', 'items-center','space-x-36','m-3','text-l');
-
-    //create li tag in div tag
-    const newToDo = document.createElement('li');
-    newToDo.innerText = todoInput.value;
-    newToDo.classList.add('todo-item');
-    todoDiv.appendChild(newToDo);
-
-    //creating inner div
-    const innerDiv = document.createElement('div');
-    innerDiv.classList.add('flex','flex-end');
-
-
-    //checkmark button
-    const completedButton = document.createElement('button');
-    completedButton.innerHTML ='<i class="fa-solid fa-check"></i>';
-    completedButton.classList.add('bg-green-500','text-white','border-none','p-2');
-    innerDiv.appendChild(completedButton);
-
-    //trash button
-    const trashButton = document.createElement('button');
-    trashButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
-    trashButton.classList.add('bg-red-400','text-white','border-none','p-2');
-    innerDiv.appendChild(trashButton);
-
-    //append innerDiv to todoDiv
-    todoDiv.appendChild(innerDiv);
-
-    //append to list
-    todoList.appendChild(todoDiv);
-
-    //clearing the todo input value
-    todoInput.value = '';
-}
-*/
 
 //selectors
 const input = document.querySelector('#input');
@@ -56,6 +6,8 @@ const submit = document.querySelector('#submit');
 const cancel = document.querySelector('#cancel');
 const section1 = document.querySelector('#section1');
 const selector = document.querySelector('#selector');
+const date = document.querySelector('#date');
+const dateP = document.querySelector('#dateP');
 
 //event listeners
 submit.addEventListener('click', addToDo);
@@ -93,12 +45,11 @@ function addToDo(event) {
     choiceDiv.appendChild(priorityP);
 
     const priority = document.createElement('p');
-    if(selector.value = "High"){
+    if(selector.selectedIndex === 0){
         priorityP.classList.add('border-2', 'border-red-600', 'rounded-sm', 'px-2', 'bg-red-200');
         priority.classList.add('text-red-600');
-        
     }
-    else if(selector.value = "Medium"){
+    else if(selector.selectedIndex === 1){
         priorityP.classList.add('border-2', 'border-green-600', 'rounded-sm', 'px-2', 'bg-green-200');
         priority.classList.add('text-green-600');
         
@@ -111,6 +62,13 @@ function addToDo(event) {
     priority.innerText = selector.value;
     priorityP.appendChild(priority);
 
+    const dateDiv = document.createElement('div');
+    dateDiv.classList.add('flex');
+    dateP.classList.add('mr-2');
+    dateP.innerText = date.value;
+    
+
+   
    
     
 
